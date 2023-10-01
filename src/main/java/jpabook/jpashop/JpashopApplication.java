@@ -14,9 +14,6 @@ public class JpashopApplication {
 
 		System.out.println("data = " + Data);
 
-
-
-
 		SpringApplication.run(JpashopApplication.class, args);
 	}
 
