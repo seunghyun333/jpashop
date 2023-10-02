@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,15 +11,11 @@ import java.util.List;
 
 @Service  // 안에 component가 들어있어서 자동으로 빈에 주입이 됨
 @Transactional(readOnly = true) // 모든 데이터, 로직 변경은 가급적 transaction안에서 실행되어야함.  //리드온리 속도 최적화함. 읽기엔 작 건 바다아
+@RequiredArgsConstructor
 public class MemberService {
-  
 
   private MemberRepository memberRepository;
 
-  @Autowired
-  public void setMemberRepository(MemberRepository memberRepository) {  //세터메서드로 간접 방호
-    this.memberRepository=memberRepository;
-  }
   
   //회원가입
   @Transactional

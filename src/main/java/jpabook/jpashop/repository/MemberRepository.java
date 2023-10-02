@@ -3,15 +3,16 @@ package jpabook.jpashop.repository;
 import jpabook.jpashop.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository // 안에 component가 들어있어서 자동으로 빈에 주입이 됨
+@RequiredArgsConstructor
 public class MemberRepository {
 
-  @PersistenceContext //엔티티매니저를 주입 받는 기능
-  private EntityManager em;
+  private final EntityManager em;
 
   public void save(Member member) {
     em.persist(member); //멤버 저장
