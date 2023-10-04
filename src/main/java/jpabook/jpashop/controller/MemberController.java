@@ -3,11 +3,11 @@ package jpabook.jpashop.controller;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.service.MemberService;
+import jpabook.jpashop.web.MemberForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -30,7 +30,7 @@ public class MemberController {
     if (result.hasErrors()) {
       return "members/createMemberForm";
     }
-    Address address = new Address(form.getCity(), form.getStreet(),
+    Address address = new Address(form.getName(), form.getStreet(),
             form.getZipcode());
     Member member = new Member();
     member.setName(form.getName());

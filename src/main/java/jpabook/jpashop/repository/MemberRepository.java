@@ -30,7 +30,7 @@ public class MemberRepository {
   }
 
   public List<Member> findByName(String name) {
-    return em.createQuery("select m from Member m where m.nae= :name", Member.class) // :name : 파라미터를 바인딩 , member.class: 조회타입
+    return em.createQuery("select m from Member m where m.name= :name", Member.class) // :name : 파라미터를 바인딩 , member.class: 조회타입
             .setParameter("name", name)
             .getResultList();
   }
